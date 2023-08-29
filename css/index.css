@@ -1,0 +1,122 @@
+body {
+  background-image: url("../source/background2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  /* 固定背景图 */
+  background-position: center center;
+  /* 水平、垂直居中 */
+  height: 100%;
+  /* 让 body 高度占满整个页面 */
+  background-repeat: no-repeat;
+}
+
+.login-form {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding: 10px 50px 20px;
+  background-color: #9dc3bb;
+  border-radius: 15px;
+}
+
+.input-group {
+  margin-bottom: 30px;
+  color: aquamarine;
+  border-radius: 15px;
+  /* 将 input 元素的角度设置为 5 像素 */
+}
+
+label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type=text],
+input[type=password] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  padding-left: 5px;
+  font-size: 16px;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 2px;
+}
+
+input[type=submit] {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 2px;
+  background-color: #009688;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #008080;
+}
+
+.page-title {
+  text-align: center;
+  color: aquamarine;
+}
+
+.submit-button {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 30px;
+  color: rgb(56, 71, 66);
+  border-radius: 5px;
+  border-color: #a9d0e4;
+}
+
+.input-text {
+  border-radius: 30px;
+}
+
+
+/*  */
+.box {
+  text-align: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px;
+  background-color: #73abaf;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.box p {
+  margin: 6px 0;
+}
+
+/*  */
+.header_index {
+  background-color: rgba(117, 117, 125, 0.5);
+  /* 设置背景颜色和透明度 */
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.subtitle {
+  color: rgba(255, 251, 251, 0.836);
+  font-size: 16px;
+  letter-spacing: 5px;
+  margin: 5px 0 5px 0;
+  font-weight: normal;
+}
+
+.header_text {
+  font-size: 60px;
+  color: #55d3c6;
+}

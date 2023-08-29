@@ -1,0 +1,107 @@
+body {
+    background-color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#quiz {
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #FFA07A, #FF8C00);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+
+.question {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #FFF;
+    text-shadow: 1px 1px 2px #333;
+}
+
+.options li {
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #444;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
+    transition: background .3s ease-in-out;
+}
+
+.options li:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+#submit {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 30px;
+    color: #FFF;
+    background: linear-gradient(135deg, #FFA07A, #FF8C00);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    font-size: 1.2em;
+    transition: background .3s ease-in-out;
+}
+
+#submit:hover {
+    background: linear-gradient(135deg, #FF8C00, #FFA07A);
+    cursor: pointer;
+}
+
+#results {
+    margin: 50px auto;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #FFA07A, #FF8C00);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+
+#score {
+    font-size: 2em;
+    color: #FFF;
+    text-align: center;
+    text-shadow: 1px 1px 2px #333;
+}
+
+#progressBar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    max-width: 600px;
+    padding: 5px;
+    background-color: #EEE;
+    border-radius: 5px;
+}
+
+.progress {
+    flex-basis: 31%;
+    height: 10px;
+    background-color: #AAA;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
+    transition: background-color .3s ease-in-out;
+}
+
+#progress1 {
+    background-color: #FFA07A;
+}
+
+#progress2 {
+    background-color: #FFD700;
+}
+
+#progress3 {
+    background-color: #20B2AA;
+}

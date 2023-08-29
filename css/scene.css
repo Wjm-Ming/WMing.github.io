@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #1D6FA3; */
+    background-image: linear-gradient(135deg, #C2FFD8 10%, #465EFB 100%);
+
+}
+
+.shell {
+    position: relative;
+    min-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* 设置3d变化 */
+    transform-style: preserve-3d;
+    /* 添加透视效果 */
+    perspective: 900px;
+}
+
+.shell .box {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    transition: 0.3s;
+    overflow: hidden;
+    margin: 30px;
+    transform: rotateY(0deg);
+    transition-delay: .1s;
+    border-radius: 5px;
+    border: #fff 5px solid;
+}
+
+/* 当鼠标所有卡片的父元素点shell上时，
+所有卡片像Y轴翻转20度 */
+.shell:hover .box {
+    transform: rotateY(20deg);
+}
+
+/* 当鼠标悬浮在当前卡片上时，当前卡片的翻转角度为0，
+并放大一点二五倍，加个阴影 */
+.shell .box:hover {
+    transform: rotateY(0deg) scale(1.25);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+/* 当鼠标悬浮在卡片上时，
+当前卡片后面的所有卡片全部都反向翻转负20度 */
+.shell .box:hover~.box {
+    transform: rotateY(-20deg);
+}
+
+.shell .box .images img {
+    width: 100%;
+}
+
+.shell .box .content {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 999;
+    padding: 15px;
+}
+
+.shell .box .content h2 {
+    color: rgb(231, 203, 59);
+    transition: 0.3s;
+    font-size: 20px;
+    transform: translateY(-100px);
+}
+
+.shell .box:hover .content h2 {
+    transform: translateY(-15px);
+}
+
+.shell .box .content p {
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    font-size: 14px;
+    transform: translateY(600px);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.shell .box:hover .content p {
+    transform: translateY(220px);
+}
+
+
+
+/*  */
+.btn {
+    z-index: 9999;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 1.1em 2em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 15px;
+    color: #131313;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 12px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+}
+
+.btn:before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+}
+
+.btn:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+/*  */
+
+
+
+.btn_space {
+    z-index: 9999;
+    position: relative;
+    right: 50px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    height: 3rem;
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+#container-stars {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+}
+
+strong {
+    z-index: 2;
+    font-family: 'Avalors Personal Use';
+    font-size: 16px;
+    letter-spacing: 5px;
+    color: #FFFFFF;
+    text-shadow: 0 0 4px white;
+}
+
+#glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+}
+
+.circle {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+}
+
+
+
+.btn_space:hover #container-stars {
+    z-index: 1;
+    background-color: #212121;
+}
+
+.btn_space:hover {
+    transform: scale(1.1)
+}
+
+.btn_space:active {
+    border: double 4px #FE53BB;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+.btn_space:active .circle {
+    background: #FE53BB;
+}
+
+#stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+}
+
+#stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+#stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-135rem);
+    }
+}
+
+@keyframes animStarRotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes gradient_301 {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse_3011 {
+    0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
