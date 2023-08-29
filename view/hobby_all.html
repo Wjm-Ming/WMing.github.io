@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            background-color: #fff9e9;
+            color: #333333;
+        }
+
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            border: 2px solid #f8d5a3;
+            border-radius: 20px;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .answer-container label {
+            display: block;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .progress-bar-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 10px;
+        }
+
+        .progress-bar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #f8d5a3;
+        }
+
+        .progress-bar-1 {
+            background-color: #f8d5a3;
+        }
+
+        .progress-bar-2.active,
+        .progress-bar-3.active {
+            background-color: #f8d5a3;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(248, 213, 163, 1);
+            }
+
+            70% {
+                transform: scale(1.5);
+                box-shadow: 0 0 0 15px rgba(248, 213, 163, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(248, 213, 163, 0);
+            }
+        }
+
+        .result-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .reset-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .reset-btn:hover {
+            opacity: 0.8;
+        }
+
+        header {
+            background-color: #45405c;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /*  */
+        .btn {
+            z-index: 9999;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            padding: 1.1em 2em;
+            background: none;
+            border: 2px solid #fff;
+            font-size: 15px;
+            color: #131313;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s;
+            border-radius: 12px;
+            background-color: #ecd448;
+            font-weight: bolder;
+            box-shadow: 0 2px 0 2px #000;
+        }
+
+        .btn:before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 120%;
+            background-color: #ff6700;
+            top: 50%;
+            transform: skewX(30deg) translate(-150%, -50%);
+            transition: all 0.5s;
+        }
+
+        .btn:hover {
+            background-color: #4cc9f0;
+            color: #fff;
+            box-shadow: 0 2px 0 2px #0d3b66;
+        }
+
+        .btn:hover::before {
+            transform: skewX(30deg) translate(150%, -50%);
+            transition-delay: 0.1s;
+        }
+
+        .btn:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>来猜猜我的兴趣爱好吧</h1>
+            <!-- <p>请认真回答以下问题，谢谢！</p> -->
+        </header>
+        <!-- 定义导航栏 -->
+        <div class="progress-bar-container">
+            <div class="progress-bar progress-bar-1 active"></div>
+            <div class="progress-bar progress-bar-2"></div>
+            <div class="progress-bar progress-bar-3"></div>
+            <div class="progress-bar progress-bar-4"></div>
+            <div class="progress-bar progress-bar-5"></div>
+        </div>
+        <div class="question-container question-container-1">
+            <p class="question">1. 我最喜欢吃的水果是啥</p>
+            <div class="answer-container">
+                <label><input type="radio" name="q1" value="A" />苹果</label>
+                <label><input type="radio" name="q1" value="B" />香蕉</label>
+                <label><input type="radio" name="q1" value="C" />葡萄</label>
+                <label><input type="radio" name="q1" value="D" />樱桃</label>
+            </div>
+        </div>
+
+        <div class="question-container question-container-2">
+            <p class="question">2. 我平常休息的时候喜欢干什么</p>
+            <div class="answer-container">
+                <label><input type="radio" name="q2" value="A" />听歌</label>
+                <label><input type="radio" name="q2" value="B" />看小说</label>
+                <label><input type="radio" name="q2" value="C" />玩游戏</label>
+                <label><input type="radio" name="q2" value="D" />学技术</label>
+            </div>
+        </div>
+        <div class="question-container question-container-3">
+            <p class="question">3. 我最喜欢的歌手是谁</p>
+            <div class="answer-container">
+                <label><input type="radio" name="q3" value="A" />陈奕迅</label>
+                <label><input type="radio" name="q3" value="B" />周杰伦</label>
+                <label><input type="radio" name="q3" value="C" />许嵩</label>
+                <label><input type="radio" name="q3" value="D" />李荣浩</label>
+            </div>
+        </div>
+        <div class="question-container question-container-4">
+            <p class="question">4. 最喜欢的体育活动是啥</p>
+            <div class="answer-container">
+                <label><input type="radio" name="q4" value="A" />篮球</label>
+                <label><input type="radio" name="q4" value="B" />乒乓</label>
+                <label><input type="radio" name="q4" value="C" />羽毛球</label>
+                <label><input type="radio" name="q4" value="D" />踢毽子</label>
+            </div>
+        </div>
+        <div class="question-container question-container-5">
+            <p class="question">5. 最喜欢在哪里学习</p>
+            <div class="answer-container">
+                <label><input type="radio" name="q5" value="A" />宿舍</label>
+                <label><input type="radio" name="q5" value="B" />图书馆</label>
+                <label><input type="radio" name="q5" value="C" />工业中心</label>
+                <label><input type="radio" name="q5" value="D" />一教教室</label>
+            </div>
+        </div>
+        <div class="result-container">
+            <p>得分：<span class="score">0</span></p>
+            <br>
+            <button class="reset-btn">重新做题</button>
+        </div>
+    </div>
+
+    <button class="btn" id="myButton"> 返回上一页
+    </button>
+    <script>
+        var myButton = document.getElementById("myButton");
+        myButton.addEventListener("click", function () {
+            window.history.back();
+        });
+        // 获取页面元素
+        const progressBar1 = document.querySelector('.progress-bar-1');
+        const progressBar2 = document.querySelector('.progress-bar-2');
+        const progressBar3 = document.querySelector('.progress-bar-3');
+        const progressBar4 = document.querySelector('.progress-bar-4');
+        const progressBar5 = document.querySelector('.progress-bar-5');
+        const questionContainer1 = document.querySelector('.question-container-1');
+        const questionContainer2 = document.querySelector('.question-container-2');
+        const questionContainer3 = document.querySelector('.question-container-3');
+        const questionContainer4 = document.querySelector('.question-container-4');
+        const questionContainer5 = document.querySelector('.question-container-5');
+        const scoreElement = document.querySelector('.score');
+
+        // 定义答案数组
+        const correctAnswers = ['A', 'A', 'A', 'A', 'A'];
+
+        // 初始化得分和当前问题编号
+        let score = 0;
+        let currentQuestion = 1;
+
+        // 显示第一个问题
+        questionContainer1.style.display = 'block';
+        progressBar1.classList.add('active');
+
+        // 监听选项变化事件
+        document.querySelectorAll('input[type=radio]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+
+                // 判断当前问题是否正确
+                if (this.value === correctAnswers[currentQuestion - 1]) {
+                    score++;
+                }
+
+                // 更新进度条和下一个问题
+                switch (currentQuestion) {
+                    case 1:
+                        progressBar1.classList.remove('active');
+                        progressBar2.classList.add('active');
+                        // questionContainer1.style.display = 'none';
+                        questionContainer2.style.display = 'block';
+                        currentQuestion = 2;
+                        break;
+                    case 2:
+                        progressBar2.classList.remove('active');
+                        progressBar3.classList.add('active');
+                        // questionContainer2.style.display = 'none';
+                        questionContainer3.style.display = 'block';
+                        currentQuestion = 3;
+                        break;
+                    case 3:
+                        progressBar3.classList.remove('active');
+                        progressBar4.classList.add('active');
+                        // questionContainer2.style.display = 'none';
+                        questionContainer4.style.display = 'block';
+                        currentQuestion = 4;
+                        break;
+                    case 4:
+                        progressBar4.classList.remove('active');
+                        progressBar5.classList.add('active');
+                        // questionContainer2.style.display = 'none';
+                        questionContainer5.style.display = 'block';
+                        currentQuestion = 5;
+                        break;
+                    case 5:
+                        // progressBar5.classList.remove('active');
+                        // questionContainer3.style.display = 'none';
+
+                        // 显示得分和重置按钮
+                        scoreElement.textContent = score;
+                        const resetButton = document.querySelector('.reset-btn');
+                        // resetButton.textContent = '重新做题';
+                        resetButton.addEventListener('click', function () {
+                            // 重置得分和问题状态
+                            score = 0;
+                            currentQuestion = 1;
+                            // questionContainer3.style.display = 'none';
+                            progressBar3.classList.remove('active');
+                            questionContainer1.style.display = 'block';
+                            progressBar1.classList.add('active');
+                            scoreElement.textContent = '0';
+                            // resetButton.remove();
+                        })
+                        scoreElement.parentElement.appendChild(resetButton);
+
+
+                }
+
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>

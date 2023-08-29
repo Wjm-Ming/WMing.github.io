@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="../css/hobby.css">
+</head>
+
+<body>
+    <h1>欢迎来到问卷调查</h1>
+    <div id="quiz">
+        <h2 class="question">问题1：你最喜欢的颜色是什么？</h2>
+        <ul class="options">
+            <li><input type="radio" name="q1" value="a"> 红色</li>
+            <li><input type="radio" name="q1" value="b"> 黄色</li>
+            <li><input type="radio" name="q1" value="c"> 蓝色</li>
+            <li><input type="radio" name="q1" value="d"> 绿色</li>
+        </ul>
+        <h2 class="question">问题2：你最喜欢的水果是什么？</h2>
+        <ul class="options">
+            <li><input type="radio" name="q2" value="a"> 苹果</li>
+            <li><input type="radio" name="q2" value="b"> 香蕉</li>
+            <li><input type="radio" name="q2" value="c"> 西瓜</li>
+            <li><input type="radio" name="q2" value="d"> 橙子</li>
+        </ul>
+        <h2 class="question">问题3：你最喜欢的动物是什么？</h2>
+        <ul class="options">
+            <li><input type="radio" name="q3" value="a"> 猫</li>
+            <li><input type="radio" name="q3" value="b"> 狗</li>
+            <li><input type="radio" name="q3" value="c"> 鸟</li>
+            <li><input type="radio" name="q3" value="d"> 鱼</li>
+        </ul>
+        <button id="submit" onclick="checkAnswers()">提交答案</button>
+    </div>
+    <div id="results">
+        <h2>答题结束，你的总得分是：</h2>
+        <p id="score"></p>
+
+    </div>
+    <div id="progressBar">
+        <div class="progress" id="progress1"></div>
+        <div class="progress" id="progress2"></div>
+        <div class="progress" id="progress3"></div>
+    </div>
+    <script src="../js/hobby.js"></script>
+</body>
+
+</html>

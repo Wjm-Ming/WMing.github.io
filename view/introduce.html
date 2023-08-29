@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/introduce.css">
+</head>
+
+<body>
+
+    <!-- 名片分三大块
+    最外层的一块a
+    文字一大块b
+    平面圆柱一块c -->
+
+    <div class="a">
+        <div class="b">
+            <a onclick="window.location.href='https://gitee.com/dashboard'">Onclick me！</a>
+            <h2>WX:Fly-ming77</h2>
+            <span> <br>吴镜明<br><br>广东技术师范大学</br><br>计算机科学学院 </br><br>21物联网1班</br><br>2021036143541<br /><br><br /></span>
+        </div>
+        <div class="c">
+            <!-- --i是用来计算平面圆柱的动效延迟和距离的
+            --w则是用来计算平面圆柱的宽度 -->
+            <div class="d" style="--i:1;--w:1.5"></div>
+            <div class="d" style="--i:2;--w:1.6"></div>
+            <div class="d" style="--i:3;--w:1.4"></div>
+            <div class="d" style="--i:4;--w:1.7"></div>
+            <div class="e" style="--i:1"></div>
+        </div>
+        <!-- 设置二维码 -->
+        <div class="f">
+
+        </div>
+
+    </div>
+
+    <button class="btn" id="myButton"> 返回上一页
+    </button>
+
+
+    <!-- <a href="javascript:history.back()" class="back-btn">返回上一页</a> -->
+    <script src="../js/introudce.js"></script>
+
+</body>
+
+</html>

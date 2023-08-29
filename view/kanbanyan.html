@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 设置背景图 */
+            background-image: url('../source/卡半岩.png');
+            /* 背景图居中填充，不重复 */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #6e7cf5;
+        }
+
+        #modal {
+            /* 模态框样式 */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal-content {
+            /* 模态框内容样式 */
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body onclick="">
+
+    <div id="modal" onclick="handleClick()">
+        <div id="modal-content">
+            <p>前面的区域，以后再来探索吧</p>
+        </div>
+    </div>
+
+    <script>
+        // 获取模态框元素
+        var modal = document.getElementById("modal");
+
+        // 触发事件处理程序
+        document.addEventListener('click', function () {
+            // 显示模态框
+            modal.style.display = "flex";
+        }, false);
+
+        // 定义点击函数
+        function handleClick() {
+            // 跳转页面
+            window.location.href = "./yuanshen.html";
+        }
+    </script>
+
+</body>
+
+</html>
